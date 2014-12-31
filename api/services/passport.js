@@ -3,7 +3,7 @@ var passport = require('passport'),
 	bcrypt = require('bcrypt');
 
 function findById(id, fn){
-	User.findOne(id).done(function(err, user){
+	User.findOne({id: id}, function(err, user){
 		if(err){
 			return fn(null, null);
 		} else {
@@ -15,7 +15,7 @@ function findById(id, fn){
 function findByUsername (u, fn){
 	User.findOne({
 		username: u
-	}).done(function(err, user){
+	}, function(err, user){
 		if(err){
 			return fn(null, null);
 		} else {
@@ -29,7 +29,7 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(id, done){
-	findById(id, function(id, done){
+	findById(id, function(err, user){
 		done(err, user);
 	});
 });

@@ -13,7 +13,7 @@ module.exports = {
 		res.view();
 	},
 
-	process: function(){
+	process: function(req, res){
 		passport.authenticate('local', function(err, user, info){
 			if((err) || (!user)) {
 				return res.send({

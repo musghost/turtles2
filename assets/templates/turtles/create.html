@@ -1,0 +1,27 @@
+<form id="form-create">
+	<h3>Agregar nueva tortuga</h3>
+	<div class="form-group">
+		<label for="turtle-name">Nombre</label>
+		<input type="text" class="form-control" id="turtle-name" placeholder="Nombre">
+	</div>
+	<div class="form-group">
+		<label for="turtle-common-name">Nombre común</label>
+		<input type="text" class="form-control" id="turtle-common-name" placeholder="Nombre común">
+	</div>
+	<div class="form-group">
+		<label for="turtle-forename">Nombre de pila</label>
+		<input type="text" class="form-control" id="turtle-forename" placeholder="Nombre de pila">
+	</div>
+	<div class="form-group">
+		<label for="turtle-gender">Género</label>
+		<select class="form-control" id="turtle-gender">
+			<option value="macho">Macho</option>
+			<option value="hembra">Hembra</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" id="add-turtle">Guardar</button>
+	</div>
+	<div class="alert alert-success hide" role="alert">El registro ha sido guardado</div>
+	<div class="alert alert-danger hide" role="alert">El registro no pudo ser guardado</div>
+</form>

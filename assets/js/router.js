@@ -3,9 +3,10 @@ define([
   'underscore',
   'backbone',
   'js/views/turtles/create',
+  'js/views/turtles/view',
   'js/views/turtles/list',
   'js/views/users/list'
-], function($, _, Backbone, TurtleCreateView, TurtleListView, UserListView){
+], function($, _, Backbone, TurtleCreateView, TurtleViewView, TurtleListView, UserListView){
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
@@ -15,6 +16,8 @@ define([
       // Default
       '*actions': 'defaultAction'*/
       '': 'showTurtles',
+      'create': 'newTurtles',
+      'view': 'viewTurtle',
       '*actions': 'defaultRoute'
     }
   });
@@ -46,6 +49,10 @@ define([
     app_router.on('route:showTurtles', function(){
       var turtleListView = new TurtleListView();
       turtleListView.render();
+    });
+    app_router.on('route:viewTurtle', function(){
+      var turtleViewView = new TurtleViewView();
+      turtleViewView.render();
     });
     app_router.on('route:defaultRoute', function(actions){
       alert(actions);
